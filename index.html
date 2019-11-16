@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-5400182152547513",
+      enable_page_level_ads: true
+    });
+  </script>
+  <title>Text-Pixel Image Generator</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Creates text-pixel images from any picture." />
+  <link rel="stylesheet" href="style.css">
+  <script src="basicFunctions.js"></script>
+  <script src="textPictureGenerators.js"></script>
+  <script src="drawingFunctions.js"></script>
+</head>
+<body onload="makeCanvasWhite()">
+   <a href="https://www.hrkgame.com/games/products/?search=resident+evil&sort=best-seller#a_aid=text_pixel_image&amp;a_bid=c53e7e72" target="_top"><img src="//affiliate.hrkgame.com/accounts/default1/3wv4n5v1b/c53e7e72.jpg" alt="RESIDENT EVIL 7 biohazard" title="RESIDENT EVIL 7 biohazard" width="1190" height="147" /></a><img style="border:0" src="https://affiliate.hrkgame.com/scripts/3wv4n5v1i?a_aid=text_pixel_image&amp;a_bid=c53e7e72" width="1" height="1" alt="" /><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <div id="content">
+  <header>
+    <img id="titleImage" src="titleImage.png" />
+    <h1 id="navigation">
+      <a href="index.html" class="navigation">Home</a>
+      <a href="contact.html" class="navigation">Contact / About</a>
+    </h1>
+  </header>
+  <div id="adsense">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- textpixelimage home -->
+    <ins class="adsbygoogle"
+      style="display:inline-block;width:300px;height:600px"
+      data-ad-client="ca-pub-5400182152547513"
+      data-ad-slot="7563341782"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+  <h2>
+    Before you start read these tips:
+  </h2>
+  <p class="disclaimer">
+    <b>0. When generating images your browser will freeze, but don't worry, this is all part of the plan (it will make generating faster).</b><br>
+    1. Use low resolution otherwise generating text-pixel picture might take a long time and your browser might freeze for few minutes.<br>
+    2. Larger sampling size creates smaller and not exactly accurate text-pixel images, lower it if you are not satisfied with result it might change a lot.<br>
+    3. Color images generated contain HTML code therefore they are mostly unusable, but still cool to look at.<br>
+    4. Large text-pixel images may not be copied through the button because of they huge size so be carefull not to waste your time generating them.<br>
+    5. If there is discoloration on bottom or right side of the generated image try to resize canvas by few pixels.<br>
+    6. Analyzer is in experimental stage it might improve visibility of some images though won't really do much usually.
+  </p>
+  <br>
+	<!--
+  <h2>Watch tutorial to see how it works:</h2>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/HG6_W-2Rriw" frameborder="0" allowfullscreen></iframe>
+	-->
+  <br>
+  <h2>
+    This is how it works.
+  </h2>
+  <h3>Choose an image :</h3>
+    <div class="indent">
+      <p class="dislaimer">
+        (only accepts jpg, png and bmp files) 
+      </p>
+      <input type="file" id="file" onchange="loadImage()" />
+    </div>
+    
+  <div id="imageWrap">
+    <img src="" id="image" />
+  </div>
+  
+  <h3>Resize canvas to suit your needs :</h3>
+    <div class="indent">
+      <p class="disclaimer">
+        (By resizing canvas you will lose its content.)
+      </p>
+      <label class="canvasSize">Width: </label><input type="text" id="canvasWidth" value="600" onchange="resizeCanvas()" /><br/>
+      <label class="canvasSize">Height: </label><input type="text" id="canvasHeight" value="600" onchange="resizeCanvas()" /><br/>
+      <button onclick="resizeCanvas()">Resize and Clear Canvas</button>
+    </div>
+  
+  <h3>Import image into canvas by clicking this button:</h3>
+    <div class="indent">
+      <button onclick="insertImage(MouseEvent)">Insert Image</button>
+    </div>
+  <h3>Draw something using tools :</h3>
+    <div class="indent">
+      <div id="drawingOptions">
+        <form id="drawingTools">
+          <input type="radio" name="drawingTool" id="pencil" value="pencil" > Pencil / 
+          <label>Pencil Radius:</label><input type="text" id="pencilRadius" value="24"/> <br>
+          <input type="radio" name="drawingTool" value="none" checked > None  <br>
+          <label>Choose color:</label>
+          <input type="color" id="colorPicker" value="#000000"/>
+        </form>
+      </div>
+      <br>
+      <canvas id="canvas" onmousedown="drawSomething(event)" onmousemove="keepDrawing(event)" onmouseup="stopDrawing()" onmouseout="stopDrawing()"></canvas>
+    </div>
+  <!--
+    <div class="loader" id="leftSpinner"></div>
+    <h2 id="workingOnIt"> Working on it...</h2>
+  -->
+  <h3>Generate text-pixel image:</h3>
+    <div class="indent">
+      <button onclick="generatePixelArt()">
+        Generate
+      </button>
+      <br>
+      <label>Use color:</label>
+      <input type="checkbox" id="useColor" />
+      <br>
+      <label>Use analyzer:</label>
+      <input type="checkbox" id="useAnalyzer" />
+      <br>
+      <label>Add new line at start:</label>
+      <input type="checkbox" id="newLineAtStart" />
+      <br>
+      <label>Add website reference on the bottom:</label>
+      <input type="checkbox" id="addWebsite" checked/>
+      <br>
+
+      <p>
+        Sampling size:
+        <input type="text"  id="sampling" value="8" />
+        <label>:1</label>
+      </p>
+    </div>
+    
+  <h2 id="h2text">After generating text-pixel image will be shown here:</h2>
+    <div class="indent">
+      <button onclick="copyTextToClipboard()">Copy text-pixel image to clipboard</button>
+    </div>
+    <br>
+    <p id="textPicture"></p>
+    <textarea id="copyArea" style="display:none;"></textarea>
+  
+  </div>
+</body>
+</html>
